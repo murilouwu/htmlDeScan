@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assests/css/index.css">
+    <script src="assests/java/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="https://static.thenounproject.com/png/34322-200.png">
+    <title>Manga View</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar__menu" >
+            <li class="navbar__item">
+                <button class="navbar__link" onclick="refreshIframe()">
+                    <i class="fas fa-square-caret-up"></i><span>Ir para o Topo</span>
+                </button>        
+            </li>
+            <li class="navbar__item">
+                <button class="navbar__link">
+                    <i class="fas fa-square-caret-right"></i><span>Proximo Cap</span>
+                </button>        
+            </li>
+            <li class="navbar__item">
+                <button class="navbar__link" onclick="CapPrompt()">
+                    <i class="fas fa-book-bookmark"></i><span>Digite um Cap</span>
+                </button>        
+            </li>
+            <li class="navbar__item">
+                <button class="navbar__link">
+                    <i class="fas fa-square-caret-left"></i><span>Cap Anterior</span>
+                </button>        
+            </li>
+        </ul>
+    </nav>
+
+    <div class="view">
+        <iframe src="capitulos/cap41.html" frameborder="0" class="ifrm"></iframe>
+    </div>
+
+    <script>
+        var iframe = document.querySelector('.ifrm');
+        function refreshIframe(){
+            if (iframe) {
+                iframe.src = iframe.src;
+            }
+        }
+
+        function CapPrompt() {
+            let loop = true;
+            while (loop) {
+                let text = 'Qual capítulo deseja? No momento, temos estes capítulos:\n\t41) Notas sobre fatores instáveis em relações sexuais fictícias.\n\nDigite o número do capítulo desejado:';
+                let question = prompt(text);
+                if (isNaN(question)) {
+                    alert('Coloque um número válido!');
+                } else {
+                    question = parseInt(question);
+                    if (question>40 && question<42) {
+                        iframe.src = 'capitulos/cap'+question+'.html';
+                        alert('Feito!');
+                        loop = false;
+                    } else {
+                        alert('Coloque um número válido entre 41 e 41!');
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
