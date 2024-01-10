@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assests/css/manga.css">
+    <script src="../assests/java/script.js"></script>
+    <script src="../assests/java/capsVar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.js" integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/39cab4bf95.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="https://static.thenounproject.com/png/34322-200.png">
+    <title>Cap 41</title>
+</head>
+    <body>
+        <h1 class="title">My Fake Girlfriends are Using Me as a Shield</h1>
+        <h3 class="sub">chapter 41: Notas sobre fatores instáveis em relações sexuais fictícias</h3>
+
+        <div class="editSpan" id="movableDiv">
+            <button id="ocultButton" class="btnForm"><i class="fas fa-eye"></i></button>
+            <input type="text" id="width" class="text">
+            <input type="text" id="height" class="text">
+            <input type="text" id="fontSize" class="text">
+            <input type="text" id="margin" class="text">
+            <input type="color" id="color" class="color">
+            <input type="color" id="BgColor" class="color">
+            <textarea id="conttend" class="textao"></textarea>
+            <p class="result">
+                width: '',<br>
+                height: '',<br>
+                color: '',<br>
+                fontSize: '',<br>
+                BgColor: '',<br>
+                margin: '',<br>
+                conttend: ''
+            </p>
+            <button id="copyButton" class="btnForm">Copy</button>
+            <script>
+                const copyButton = document.querySelector('#copyButton');
+                copyButton.addEventListener('click', () => {
+                    const resultBlock = document.querySelector('.result');
+                    const tempTextArea = document.createElement('textarea');
+                    tempTextArea.value = resultBlock.innerText;
+                    document.body.appendChild(tempTextArea);
+                    tempTextArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempTextArea);
+
+                    alert('Texto copiado com sucesso!');
+                });
+
+                let opac = true;
+                const ocultButton = document.querySelector('#ocultButton');
+                ocultButton.addEventListener('click', () => {
+                    const div = document.querySelector('#movableDiv');
+                    div.style.opacity = opac? '5%':'100%';
+                    opac = opac? false:true;
+                });
+            </script>
+        </div>
+
+        <div class="manga">
+            <script>
+                let divSpace = document.querySelector('.manga');
+
+                WriteManga(divSpace, Manga, 41);
+            </script>
+        </div>
+
+        <script>
+            let spanAtual;
+
+            function updateEditSpanForm(span) {
+                spanAtual = span;
+                const widthInput = document.getElementById('width');
+                const heightInput = document.getElementById('height');
+                const fontSizeInput = document.getElementById('fontSize');
+                const marginInput = document.getElementById('margin');
+                const colorInput = document.getElementById('color');
+                const bgColorInput = document.getElementById('BgColor');
+                const conttendTextarea = document.getElementById('conttend');
+
+                widthInput.value = span.style.width;
+                heightInput.value = span.style.height;
+                fontSizeInput.value = span.style.fontSize;
+                marginInput.value = span.style.margin;
+                colorInput.value = span.style.color;
+                bgColorInput.value = span.style.backgroundColor;
+                conttendTextarea.value = span.innerHTML;
+
+                // Atualizar o bloco de resultados
+                updateResultBlock();
+            }
+
+            function updateResultBlock() {
+                const resultBlock = document.querySelector('.result');
+                
+                const selectedSpan = spanAtual;
+
+                selectedSpan.style.width = document.getElementById('width').value;
+                selectedSpan.style.height = document.getElementById('height').value;
+                selectedSpan.style.color = document.getElementById('color').value;
+                selectedSpan.style.fontSize = document.getElementById('fontSize').value;
+                selectedSpan.style.backgroundColor = document.getElementById('BgColor').value;
+                selectedSpan.style.margin = document.getElementById('margin').value;
+                selectedSpan.innerHTML = document.getElementById('conttend').value;
+
+                resultBlock.innerHTML = `
+                    'width': '${document.getElementById('width').value}',<br>
+                    'height': '${document.getElementById('height').value}',<br>
+                    'color': '${document.getElementById('color').value}',<br>
+                    'fontSize': '${document.getElementById('fontSize').value}',<br>
+                    'BgColor': '${document.getElementById('BgColor').value}',<br>
+                    'margin': '${document.getElementById('margin').value}',<br>
+                    'conttend': '${document.getElementById('conttend').value}'
+                `;
+            }
+
+            const inputs = document.querySelectorAll('.text, .color, .textao');
+            inputs.forEach((input) => {
+                input.addEventListener('input', updateResultBlock);
+            });
+
+            let isDragging = false;
+            let offset = { x: 0, y: 0 };
+        
+            const movableDiv = document.getElementById('movableDiv');
+        
+            movableDiv.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offset = {
+                    x: e.clientX - movableDiv.getBoundingClientRect().left,
+                    y: e.clientY - movableDiv.getBoundingClientRect().top
+                };
+                movableDiv.style.cursor = 'grabbing';
+            });
+        
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+        
+                movableDiv.style.left = e.pageX - offset.x + 'px';
+                movableDiv.style.top = e.pageY - offset.y + 'px';
+            });
+        
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+                movableDiv.style.cursor = 'grab';
+            });
+        </script>
+    </body>
+</html>
