@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'ComicHq';
+    transition: 0.025s;
+  }
+  
+  /*web-kit*/
+  input[type=file] {
+    display: none;
+  }
+  
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0.5vw;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(13 85 51 / 0.616);
+    border-radius: 3vw;
+  }
+  
+  .ocultar {
+    display: none;
+  }
+  
+  button:focus, button:focus-visible, input:focus-visible, input:focus, select:focus-visible, select:focus, textarea:focus-visible, textarea:focus {
+    outline: none;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: overlay;
+  }
+
+  @font-face {
+    font-family: 'ComicHq';
+    src: url('../fonts/AnimeAce-neP.ttf') format('truetype');
+  }
+
+  :root{
+    --CorA: #0E040E;
+    --CorB: #070626;
+    --CorC: #38A45B;
+    --CorD: #4BBD54;
+    --CorE: #6FDC3D;
+    --invisible: rgba(0 0 0 / 0%);
+  }

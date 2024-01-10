@@ -1,0 +1,126 @@
+@import url('preset.css');
+
+body{
+    background-color: var(--CorA);
+}
+    .navbar{
+        width: 6vw;
+        height: 70vh;
+        background-color: var(--CorA);
+        margin-top: 10vh;
+        align-self: baseline;
+        position: absolute;
+        margin-left: 2vw;
+        border-radius: 0.7vw;
+        box-shadow: 0px 0px 15px 4px rgb(33 6 33);
+        padding: 1vw;
+    }
+        .navbar__menu{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 100%;
+            width: 100%;
+        }
+            .navbar__item{
+                background-color: var(--CorA);
+                padding: 0.5vw;
+                border-radius: 0.5vw;
+                height: 5vh;
+                width: 3vw;
+                text-align: center;
+            }
+                .navbar__item:hover {
+                    animation: 0.05s expand ease-in-out;
+                    background-color: var(--CorE);
+                    cursor: pointer;
+                }
+                .navbar__link{
+                    color: #121057;
+                    background-color: var(--invisible);
+                    border: none;
+                    font-size: 4vh;
+                }
+                    .navbar__item:hover .navbar__link{
+                        color: var(--CorB);
+                        cursor: pointer;
+                    }
+                    .navbar__item:hover span{
+                        display: block;
+                        animation: 0.05s scrollx ease-in-out;
+                        margin: -3.7vh 0vw 0vh 7vw;
+                        opacity: 100%;
+                    }
+
+                    .navbar__link span{
+                        display: none;
+                        position: absolute;
+                        background-color: var(--CorE);
+                        font-size: 2vh;
+                        width: 12vw;
+                        padding: 0.5vw;
+                        text-align: center;
+                        font-weight: bold;
+                        margin: -3.7vh 0vw 0vh -7vw;
+                        border-radius: 0.5vw;
+                        opacity: 0%;
+                    }
+
+@keyframes expand{
+    0%{
+        width: 2vw;
+        height: 7vh;
+        background-color: var(--CorA);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    25%{
+        width: 3vw;
+        height: 5vh;
+        background-color: var(--CorE);
+        display: block;
+        margin-top: 2vh;
+    }
+    75%{
+        width: 3vw;
+        height: 5vh;
+        background-color: var(--CorE);
+        display: block;
+        margin-top: -2vh;
+    }
+    100%{
+        width: 3vw;
+        height: 5vh;
+        background-color: var(--CorE);
+        margin-top: 0vh;
+    }
+}
+
+@keyframes scrollx{
+    0%{
+        opacity: 0%;
+        margin: -3.7vh 0vw 0vh -7vw;
+    }
+    100%{
+        opacity: 100%;
+        margin: -3.7vh 0vw 0vh 7vw;
+    }
+}
+
+
+.view{
+    margin-top: 3vh;
+    width: 50vw;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ifrm{
+    height: 100%;
+    width: 100%;
+}

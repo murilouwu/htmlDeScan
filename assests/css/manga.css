@@ -1,0 +1,106 @@
+@import url('preset.css');
+
+body{
+    background-color: var(--CorA);
+    overflow-x: hidden;
+}
+
+.title{
+    color: var(--CorE);
+    font-size: 3vh;
+    margin-top: 8vh;
+}
+.sub{
+    color: var(--CorC);
+    font-size: 2vh;
+    margin-top: 2vh;
+}
+.manga{
+    background-color: var(--CorA);
+    margin-top: 3vh;
+    width: 90vw;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .page{
+        width: 85vw;
+    }
+        .imgPage{
+            width: 100%;
+        }
+        .spans{
+            width: 100%;
+        }
+            .spans span{
+                padding: 1vw;
+                position: absolute;
+            }
+
+
+.editSpan{
+    z-index: 10;
+    color: aliceblue;
+    width: 26vw;
+    height: 57vh;
+    background-color: var(--CorB);
+    padding: 0.5vw;
+    border: 2px solid var(--CorC);
+    border-radius: 0.25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    cursor: grab;
+}
+    .text{
+        width: 80%;
+        background-color: var(--invisible);
+        border: none;
+        border-bottom: 2px solid var(--CorD);
+        margin-bottom: 1vh;
+        color: var(--CorC);
+        font-size: 1vh;
+    }
+    .color{
+        color: aliceblue;
+        background-color: var(--CorC);
+        border: none;
+        margin-bottom: 1vh;
+    }
+    .textao{
+        width: 80%;
+        height: 15vh;
+        background-color: var(--CorA);
+        border: none;
+        border-bottom: 2px solid var(--CorD);
+        margin-bottom: 1vh;
+        color: var(--CorC);
+        font-size: 1vh;
+        padding: 0.5vw;
+    }
+    .result{
+        width: 80%;
+        height: 15vh;
+        background-color: var(--CorA);
+        border: none;
+        margin-bottom: 1vh;
+        color: var(--CorC);
+        font-size: 1vh;
+        padding: 0.5vw;
+        word-wrap: break-word;
+    }
+        .btnForm{
+            background-color: var(--CorD);
+            color: var(--CorA);
+            border: none;
+            padding: 1vh;
+            border-radius: 0.5vw;
+            font-weight: bold;
+            font-size: 2vh;
+        }
+            .btnForm:hover{
+                cursor: pointer;
+            }
