@@ -53,3 +53,11 @@ function drop(btn, id, fun, textId, texts){
 	let onclick = "drop(this, '"+id+"', "+fun2+", '"+textId+"',['"+newTexts[0]+"', '"+newTexts[1]+"'])";
 	btn.setAttribute("onclick", onclick);
 }
+
+function rgbToHex(rgb){
+    const hex = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return hex ?
+        '#' + ('0' + parseInt(hex[1], 10).toString(16)).slice(-2) +
+        ('0' + parseInt(hex[2], 10).toString(16)).slice(-2) +
+        ('0' + parseInt(hex[3], 10).toString(16)).slice(-2) : '';
+}
